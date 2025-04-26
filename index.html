@@ -1,106 +1,65 @@
-<!DOCTYPE html><html lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CCS 충북방송 가입센터</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-    header {
-      background-color: #007BFF;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .main-banner {
-      padding: 20px;
-      background: white;
-      text-align: center;
-      font-size: 20px;
-      color: #333;
-      font-weight: bold;
-      border-bottom: 2px solid #007BFF;
-    }
-    table {
-      width: 90%;
-      margin: 30px auto;
-      border-collapse: collapse;
-      background: white;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 15px;
-      text-align: center;
-    }
-    th {
-      background-color: #007BFF;
-      color: white;
-    }
-    .call-button {
-      display: inline-block;
-      background-color: #28a745;
-      color: white;
-      padding: 15px 30px;
-      font-size: 18px;
-      text-decoration: none;
-      border-radius: 50px;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      margin-top: 50px;
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body><header>
-  <h1>CCS 충북방송 가입센터</h1>
-</header><div class="main-banner">
-  충북 최고 혜택, 최저 요금! 지금 바로 가입 상담하세요.
-</div><table>
-  <thead>
-    <tr>
-      <th>통신사</th>
-      <th>상품명</th>
-      <th>월 요금</th>
-      <th>사은품 혜택</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>SK브로드밴드</td>
-      <td>기가라이트 인터넷</td>
-      <td>22,000원</td>
-      <td>상품권 10만원</td>
-    </tr>
-    <tr>
-      <td>LG유플러스</td>
-      <td>500메가 인터넷</td>
-      <td>24,200원</td>
-      <td>상품권 12만원</td>
-    </tr>
-    <tr>
-      <td>KT올레</td>
-      <td>기가인터넷</td>
-      <td>27,500원</td>
-      <td>상품권 13만원</td>
-    </tr>
-  </tbody>
-</table><a class="call-button" href="tel:01029771681">상담 연결하기</a>
+<body>
 
-<footer>
-  CCS 충북방송 가입센터 | 상담전화: 010-2977-1681<br>
-  © 2025 CCS 충북방송 가입센터. All rights reserved.
-</footer></body>
+<!-- 상단 고정 전화 버튼 -->
+<div class="fixed-call-button">
+  <a href="tel:01029771681">전화걸기</a>
+</div>
+
+<!-- 헤더 -->
+<header class="header">
+  <div class="container">
+    <img src="https://via.placeholder.com/150x50?text=CCS+로고" alt="CCS 로고" class="logo">
+    <div class="phone">
+      <a href="tel:01029771681">010-2977-1681</a>
+    </div>
+  </div>
+</header>
+
+<!-- 상품표 섹션 -->
+<main class="container">
+  <h1>상품 요금제 안내</h1>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>상품명</th>
+        <th>월 요금</th>
+        <th>혜택</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>케이블TV 98채널</td>
+        <td>9,500원</td>
+        <td>3개월 무료 / 설치비 상담</td>
+      </tr>
+      <tr>
+        <td>보급형HD 105채널</td>
+        <td>10,000원</td>
+        <td>요금할인 / HD 셋탑제공</td>
+      </tr>
+      <tr>
+        <td>기본형HD 142채널</td>
+        <td>13,200원</td>
+        <td>3개월 무료 / HD 셋탑제공</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    &copy; 2025 CCS 충북방송 가입센터. All rights reserved.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>
