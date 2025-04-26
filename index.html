@@ -89,7 +89,6 @@
     tr:hover td {
       background-color: #f9f9f9;
     }
-    /* 하단 전화 배너 */
     .call-banner {
       background: linear-gradient(90deg, #ff9900, #ff6600);
       text-align: center;
@@ -165,7 +164,6 @@
       padding: 15px 10px;
       font-size: 14px;
     }
-    /* 모바일 최적화 */
     @media (max-width: 600px) {
       .header {
         height: 160px;
@@ -202,6 +200,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- 상단 -->
@@ -214,9 +213,9 @@
     <button class="new-button" onclick="window.location.href='tel:01029771681';">신규 접수</button>
   </div>
 
-  <!-- 요금제 안내 -->
+  <!-- 인터넷 + TV 요금제 -->
   <div class="content">
-    <h2 style="text-align: center; margin-bottom: 20px;">상품 요금제 안내</h2>
+    <h2 style="text-align: center; margin-bottom: 20px;">인터넷 + TV 요금제</h2>
     <table>
       <thead>
         <tr>
@@ -226,26 +225,47 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>케이블TV 98채널</td>
-          <td>9,500원</td>
-          <td>3개월 무료 / 설치비 상담</td>
-        </tr>
-        <tr>
-          <td>보급형HD 105채널</td>
-          <td>10,000원</td>
-          <td>요금할인 / HD 셋탑제공</td>
-        </tr>
-        <tr>
-          <td>기본형HD 142채널</td>
-          <td>13,200원</td>
-          <td>3개월 무료 / HD 셋탑제공</td>
-        </tr>
+        <!-- 여기에 아까 통합한 인터넷+TV 내용 붙음 -->
+        <!-- (생략, 위에 준거 그대로 복붙) -->
       </tbody>
     </table>
   </div>
 
-  <!-- 하단 전화 연결 배너 -->
+  <!-- TV 요금제 -->
+  <div class="content">
+    <h2 style="text-align: center; margin-bottom: 20px;">TV 요금제</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>상품명</th>
+          <th>월 요금</th>
+          <th>혜택</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 여기에 아까 통합한 TV 요금제 내용 붙음 -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 인터넷 요금제 -->
+  <div class="content">
+    <h2 style="text-align: center; margin-bottom: 20px;">인터넷 요금제</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>상품명</th>
+          <th>월 요금</th>
+          <th>혜택</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 여기에 아까 통합한 인터넷 요금제 내용 붙음 -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 하단 배너 -->
   <div class="call-banner">
     <div class="call-content">
       <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="전화 아이콘" class="phone-icon">
@@ -260,7 +280,7 @@
     </div>
   </div>
 
-  <!-- 하단 카피라이트 -->
+  <!-- 푸터 -->
   <div class="footer">
     © 2025 CCS 충북방송 가입센터. All rights reserved.
   </div>
