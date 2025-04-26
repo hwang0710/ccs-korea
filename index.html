@@ -7,55 +7,75 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
   <style>
     body { margin: 0; font-family: 'Noto Sans', sans-serif; background: #fafafa; display: flex; flex-direction: column; min-height: 100vh; }
-    .header { background: linear-gradient(90deg, #0056b3, #007bff); padding: 15px 20px; position: relative; height: 120px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .header button { font-size: 18px; padding: 12px 24px; border: none; border-radius: 10px; color: white; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
-    .header button:hover { transform: scale(1.05); }
-    .as-button { position: absolute; top: 20px; left: 20px; background: linear-gradient(90deg, #007bff, #3399ff); }
-    .new-button { position: fixed; top: 20px; right: 20px; background: linear-gradient(90deg, #ff0066, #ff3399); z-index: 1000; }
-    .center-text { text-align: center; color: white; }
-    .center-text h1 { font-size: 26px; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
-    .center-text p { font-size: 16px; margin: 5px 0 0 0; opacity: 0.9; }
+    .header { background: linear-gradient(90deg, #0056b3, #007bff); padding: 15px 20px; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .center-text { color: white; text-align: center; }
+    .center-text h1 { margin: 0; font-size: 26px; font-weight: bold; }
+    .center-text p { margin: 5px 0 0; font-size: 16px; opacity: 0.9; }
+    .as-button { margin-top: 10px; background: linear-gradient(90deg, #007bff, #3399ff); border: none; border-radius: 10px; padding: 12px 24px; font-size: 18px; font-weight: bold; color: white; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .fixed-new-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .fixed-new-button button {
+      background: linear-gradient(90deg, #ff0066, #ff3399);
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .fixed-new-button button:hover {
+      transform: scale(1.05);
+    }
     .content { flex: 1; padding: 30px; background: white; margin: 20px; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); overflow-x: auto; }
-    table { width: 100%; min-width: 600px; border-collapse: collapse; overflow: hidden; border-radius: 8px; }
-    th, td { padding: 16px; border: 1px solid #ddd; text-align: center; transition: background 0.3s; }
+    table { width: 100%; min-width: 600px; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 16px; border: 1px solid #ddd; text-align: center; }
     th { background: #f0f0f0; }
     tr:hover td { background: #f9f9f9; }
-    .call-banner { background: linear-gradient(90deg, #ff9900, #ff6600); text-align: center; padding: 20px 10px; color: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-    .call-content { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; position: relative; }
+    .call-banner { background: linear-gradient(90deg, #ff9900, #ff6600); text-align: center; padding: 20px 10px; color: white; }
+    .footer { background: black; color: white; text-align: center; padding: 15px 10px; font-size: 14px; }
     .phone-icon { width: 60px; height: 60px; margin-right: 15px; }
+    .call-content { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
     .call-info { text-align: left; }
     .call-title { font-size: 16px; font-weight: bold; color: #ffe600; }
-    .call-number { display: block; font-size: 32px; font-weight: bold; margin: 5px 0; color: white; text-decoration: none; transition: color 0.3s; }
-    .call-number:hover { color: #ffff66; }
-    .call-desc { font-size: 14px; color: white; }
-    .call-bubble { background: red; color: white; font-weight: bold; font-size: 14px; padding: 10px 12px; border-radius: 50%; position: absolute; right: 10px; top: 0; line-height: 1.2; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; transition: background 0.3s, transform 0.2s; }
-    .call-bubble:hover { background: darkred; transform: scale(1.1); }
-    .footer { background: black; color: white; text-align: center; padding: 15px 10px; font-size: 14px; }
+    .call-number { display: block; font-size: 32px; font-weight: bold; color: white; margin: 5px 0; }
+    .call-desc { font-size: 14px; }
+    .call-bubble { background: red; color: white; padding: 10px 12px; border-radius: 50%; font-size: 14px; font-weight: bold; position: absolute; right: 10px; top: 0; line-height: 1.2; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
     /* 모바일 최적화 */
     @media (max-width: 600px) {
-      .header { height: auto; flex-direction: column; padding: 20px; }
-      .header button { position: static; margin: 10px 0; width: 80%; max-width: 300px; }
+      .header { padding: 30px 10px; }
       .center-text h1 { font-size: 22px; }
       .center-text p { font-size: 14px; }
-      table { min-width: 100%; font-size: 14px; }
-      .phone-icon { width: 40px; height: 40px; margin-bottom: 10px; }
+      table { font-size: 14px; }
       .call-content { flex-direction: column; }
       .call-info { text-align: center; }
       .call-number { font-size: 24px; }
-      .call-bubble { position: static; margin-top: 10px; width: auto; height: auto; border-radius: 20px; padding: 8px 16px; font-size: 16px; }
+      .call-bubble { position: static; margin-top: 10px; border-radius: 20px; padding: 8px 16px; }
     }
   </style>
 </head>
+
 <body>
 
+<!-- 고정된 신규 접수 버튼 -->
+<div class="fixed-new-button">
+  <button onclick="window.location.href='tel:01029771681';">신규 접수</button>
+</div>
+
+<!-- 상단 영역 -->
 <div class="header">
-  <button class="as-button" onclick="window.location.href='tel:0438507000';">AS 접수</button>
   <div class="center-text">
     <h1>CCS 충북방송 가입센터</h1>
     <p>010-2977-1681</p>
   </div>
-  <button class="new-button" onclick="window.location.href='tel:01029771681';">신규 접수</button>
+  <button class="as-button" onclick="window.location.href='tel:0438507000';">AS 접수</button>
 </div>
 <!-- TV 요금제 -->
 <div class="content">
@@ -106,6 +126,7 @@
     </tbody>
   </table>
 </div>
+
 <!-- 하단 통화 배너 -->
 <div class="call-banner">
   <div class="call-content">
@@ -113,7 +134,7 @@
     <div class="call-info">
       <div class="call-title">가입문의전화</div>
       <a href="tel:01029771681" class="call-number">010-2977-1681</a>
-      <div class="call-desc">전화주시면 성심껏 답변해드리겠습니다.<br>평일 09:00~20:00 / 토 09:00~18:00</div>
+      <div class="call-desc">전화주시면 성심껏 답변해드리겠습니다.<br> 연중무휴 24시간 상담 / 24시간 상담가능</div>
     </div>
     <a href="tel:01029771681" class="call-bubble">즉시<br>통화</a>
   </div>
