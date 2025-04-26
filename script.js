@@ -1,1 +1,1 @@
-console.log('사이트 로딩 완료');
+console.log('사이트 로딩 완료')
