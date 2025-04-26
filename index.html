@@ -72,6 +72,63 @@
     th {
       background-color: #e0e0e0;
     }
+    /* 하단 전화 배너 */
+    .call-banner {
+      background: linear-gradient(90deg, #ffa500, #ff7300);
+      text-align: center;
+      padding: 20px 10px;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .call-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .phone-icon {
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+    }
+    .call-info {
+      text-align: left;
+    }
+    .call-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffe600;
+    }
+    .call-number {
+      display: block;
+      font-size: 32px;
+      font-weight: bold;
+      margin: 5px 0;
+      color: white;
+      text-decoration: none;
+    }
+    .call-number:hover {
+      color: #ffff66;
+    }
+    .call-desc {
+      font-size: 14px;
+      color: white;
+    }
+    .call-bubble {
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 50%;
+      position: absolute;
+      right: 10px;
+      top: 0;
+      line-height: 1.2;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    /* 하단 카피라이트 */
     .footer {
       background-color: black;
       color: white;
@@ -95,6 +152,22 @@
       }
       .center-text {
         margin-top: 10px;
+      }
+      .call-content {
+        flex-direction: column;
+      }
+      .phone-icon {
+        margin: 0 0 10px 0;
+      }
+      .call-info {
+        text-align: center;
+      }
+      .call-bubble {
+        position: static;
+        margin-top: 10px;
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-size: 16px;
       }
     }
   </style>
@@ -142,7 +215,22 @@
     </table>
   </div>
 
-  <!-- 하단 -->
+  <!-- 하단 전화 연결 배너 -->
+  <div class="call-banner">
+    <div class="call-content">
+      <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="전화 아이콘" class="phone-icon">
+      <div class="call-info">
+        <div class="call-title">가입문의전화</div>
+        <a href="tel:01029771681" class="call-number">010-2977-1681</a>
+        <div class="call-desc">전화주시면 성심껏 답변해드리겠습니다.<br>평일 09:00~20:00 / 토 09:00~18:00</div>
+      </div>
+      <div class="call-bubble">
+        즉시<br>통화
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 카피라이트 -->
   <div class="footer">
     © 2025 CCS 충북방송 가입센터. All rights reserved.
   </div>
