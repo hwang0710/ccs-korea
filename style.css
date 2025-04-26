@@ -1,4 +1,4 @@
-/* 전체 리셋 */
+/* 리셋 */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,6 @@
 }
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  line-height: 1.5;
   background: #f9f9f9;
   color: #333;
 }
@@ -15,8 +14,8 @@ body {
 .top-fixed-buttons {
   position: fixed;
   top: 10px;
-  left: 10px;
-  right: 10px;
+  width: 100%;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,17 +30,17 @@ body {
   text-decoration: none;
 }
 .btn-as {
-  background-color: #6c63ff; /* 퍼플 (AS 접수) */
+  background-color: #6c63ff; /* 퍼플: AS 접수 */
 }
-.btn-call {
-  background-color: #ff287b; /* 핑크 (전화연결) */
+.btn-new {
+  background-color: #ff287b; /* 핑크: 신규 접수 */
 }
 
 /* 헤더 */
 .header {
   background: #0054A6;
   color: #fff;
-  padding: 80px 0 20px; /* 버튼 공간 확보 위해 위쪽 여백 추가 */
+  padding: 80px 0 20px;
   text-align: center;
 }
 .header-inner {
@@ -59,7 +58,6 @@ body {
   font-size: 18px;
   text-decoration: none;
   margin-top: 10px;
-  display: block;
 }
 
 /* 상품표 */
@@ -106,8 +104,6 @@ h1 {
   .top-fixed-buttons {
     flex-direction: column;
     gap: 8px;
-    top: 5px;
-    left: 5px;
-    right: 5px;
+    padding: 0 5px;
   }
 }
