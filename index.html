@@ -11,7 +11,7 @@
     .header button { font-size: 18px; padding: 12px 24px; border: none; border-radius: 10px; color: white; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: background 0.3s, transform 0.2s; }
     .header button:hover { transform: scale(1.05); }
     .as-button { position: absolute; top: 20px; left: 20px; background: linear-gradient(90deg, #007bff, #3399ff); }
-    .new-button { position: fixed; top: 20px; right: 20px; background: linear-gradient(90deg, #ff0066, #ff3399); z-index: 999; }
+    .new-button { position: fixed; top: 20px; right: 20px; background: linear-gradient(90deg, #ff0066, #ff3399); z-index: 1000; }
     .center-text { text-align: center; color: white; }
     .center-text h1 { font-size: 26px; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
     .center-text p { font-size: 16px; margin: 5px 0 0 0; opacity: 0.9; }
@@ -47,10 +47,8 @@
     }
   </style>
 </head>
-
 <body>
 
-<!-- 상단 -->
 <div class="header">
   <button class="as-button" onclick="window.location.href='tel:0438507000';">AS 접수</button>
   <div class="center-text">
@@ -59,8 +57,7 @@
   </div>
   <button class="new-button" onclick="window.location.href='tel:01029771681';">신규 접수</button>
 </div>
-
-<!-- 요금표: TV 요금제 -->
+<!-- TV 요금제 -->
 <div class="content">
   <h2 style="text-align:center;">TV 요금제</h2>
   <table>
@@ -77,7 +74,7 @@
   </table>
 </div>
 
-<!-- 요금표: 인터넷 요금제 -->
+<!-- 인터넷 요금제 -->
 <div class="content">
   <h2 style="text-align:center;">인터넷 요금제</h2>
   <table>
@@ -91,7 +88,7 @@
   </table>
 </div>
 
-<!-- 요금표: 인터넷 + TV 요금제 -->
+<!-- 인터넷 + TV 요금제 -->
 <div class="content">
   <h2 style="text-align:center;">인터넷 + TV 요금제</h2>
   <table>
@@ -109,8 +106,7 @@
     </tbody>
   </table>
 </div>
-
-<!-- 하단 통화배너 -->
+<!-- 하단 통화 배너 -->
 <div class="call-banner">
   <div class="call-content">
     <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="전화 아이콘" class="phone-icon">
