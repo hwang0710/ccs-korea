@@ -14,33 +14,35 @@ body {
 .top-fixed-buttons {
   position: fixed;
   top: 10px;
-  width: 100%;
-  padding: 0 10px;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
+  padding: 0 20px;
   align-items: center;
   z-index: 1000;
 }
-.top-fixed-buttons a {
-  padding: 10px 20px;
-  font-size: 16px;
+.left-buttons a,
+.right-buttons a {
+  padding: 14px 24px;
+  font-size: 18px;
   border-radius: 8px;
   font-weight: bold;
   color: white;
   text-decoration: none;
 }
 .btn-as {
-  background-color: #6c63ff; /* 퍼플: AS 접수 */
+  background-color: #6c63ff; /* 보라색 */
 }
 .btn-new {
-  background-color: #ff287b; /* 핑크: 신규 접수 */
+  background-color: #ff287b; /* 핑크색 */
 }
 
 /* 헤더 */
 .header {
   background: #0054A6;
   color: #fff;
-  padding: 80px 0 20px;
+  padding: 100px 0 20px; /* 버튼 공간 확보 */
   text-align: center;
 }
 .header-inner {
@@ -50,7 +52,7 @@ body {
   flex-wrap: wrap;
 }
 .logo-text {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 }
 .phone a {
@@ -95,7 +97,7 @@ h1 {
   margin-top: 40px;
 }
 
-/* 모바일 대응 */
+/* 모바일 반응형 */
 @media (max-width: 768px) {
   .header-inner {
     flex-direction: column;
@@ -104,6 +106,7 @@ h1 {
   .top-fixed-buttons {
     flex-direction: column;
     gap: 8px;
-    padding: 0 5px;
+    top: 5px;
+    padding: 0 10px;
   }
 }
