@@ -15,209 +15,659 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CCS 충북방송 가입센터</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0; font-family: 'Noto Sans', sans-serif; background: #fafafa;
-      display: flex; flex-direction: column; min-height: 100vh;
-      animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .header {
-      background: linear-gradient(90deg, #0040ff, #00c6ff);
-      padding: 20px; position: relative; height: 140px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: slideDown 1s ease-in;
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .header button {
-      font-size: 18px; padding: 12px 24px; border: none; border-radius: 12px;
-      color: white; cursor: pointer; font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.3s, transform 0.2s;
-    }
-    .header button:hover { transform: scale(1.05); }
-    .as-button {
-      position: absolute; top: 20px; left: 20px;
-      background: linear-gradient(90deg, #00bfff, #3399ff);
-    }
-    .new-button {
-      position: fixed; top: 20px; right: 20px;
-      background: linear-gradient(90deg, #ff0066, #ff3399);
-      z-index: 999;
-    }
-    .center-text {
-      text-align: center; color: white;
-    }
-    .center-text h1 {
-      font-size: 30px; margin: 0; font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    }
-    .center-text p {
-      font-size: 18px; margin: 5px 0 0 0; opacity: 0.9;
-    }
-    .content {
-      flex: 1; padding: 30px; background: white; margin: 20px;
-      border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      overflow-x: auto; animation: fadeIn 1s ease-in;
-    }
-    table {
-      width: 100%; min-width: 600px; border-collapse: collapse;
-      border-radius: 12px; overflow: hidden; background: #ffffff;
-      animation: fadeIn 1.5s ease-in;
-    }
-    th, td {
-      padding: 16px; border: 1px solid #ddd; text-align: center;
-      transition: background 0.3s;
-    }
-    th {
-      background: linear-gradient(90deg, #00b4db, #0083b0);
-      color: white;
-    }
-    tr:hover td {
-      background: #e0f7fa;
-    }
-    .call-banner {
-      background: linear-gradient(90deg, #ff9900, #ff6600);
-      text-align: center; padding: 20px 10px; color: white;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease-in;
-    }
-    .call-content {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; position: relative;
-    }
-    .phone-icon { width: 60px; height: 60px; margin-right: 15px; }
-    .call-info { text-align: left; }
-    .call-title {
-      font-size: 18px; font-weight: bold; color: #ffe600;
-    }
-    .call-number {
-      display: block; font-size: 32px; font-weight: bold;
-      margin: 5px 0; color: white; text-decoration: none;
-      transition: color 0.3s;
-    }
-    .call-number:hover { color: #ffff66; }
-    .call-desc { font-size: 15px; color: white; }
-    .call-bubble {
-      background: red; color: white; font-weight: bold;
-      font-size: 14px; padding: 10px 12px; border-radius: 50%;
-      position: fixed; bottom: 90px; right: 20px;
-      line-height: 1.2; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      text-decoration: none; display: flex; align-items: center; justify-content: center;
-      width: 60px; height: 60px; transition: background 0.3s, transform 0.2s;
-      z-index: 999;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .footer {
-      background: black; color: white; text-align: center;
-      padding: 15px 10px; font-size: 14px;
-      margin-top: 30px;
-    }
-    @media (max-width: 600px) {
-      .header { height: auto; flex-direction: column; padding: 20px; }
-      .header button { position: static; margin: 10px 0; width: 80%; max-width: 300px; }
-      .center-text h1 { font-size: 24px; }
-      .center-text p { font-size: 14px; }
-      table { min-width: 100%; font-size: 14px; }
-      .call-bubble { width: 50px; height: 50px; font-size: 12px; bottom: 80px; right: 10px; }
-    }
-  </style>
+  <!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CCS 충북방송 가입센터 | 인터넷·TV 가입문의</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Pretendard','Noto Sans KR',sans-serif;
+    background: linear-gradient(180deg,#f7faff,#ffffff 50%);
+  }
+
+  header {
+    background: linear-gradient(135deg,#e7f0ff,#bcd6ff);
+    text-align: center;
+    padding: 30px 16px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .cta {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg,#004c97,#0a6cff);
+    color: #fff;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(10,108,255,0.3);
+    font-size: 15px;
+    animation: glow 2.2s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 10px rgba(10,108,255,0.5); filter: brightness(100%); }
+    to { box-shadow: 0 0 22px rgba(10,108,255,0.85); filter: brightness(115%); }
+  }
+
+  .logo-text {
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    line-height: 1;
+  }
+  .logo-text .c1 { color: #8cc63f; }
+  .logo-text .c2 { color: #004c97; }
+  .logo-text .dot {
+    display:inline-block;width:12px;height:12px;border-radius:50%;
+    background:#ff8c1a;margin-left:4px;
+  }
+  .logo-sub { font-size:20px;font-weight:700;color:#0b1d4f;margin-top:8px; }
+
+  .tagline {
+    background:#004c97;color:#ffffff;text-align:center;
+    padding:12px;font-weight:700;font-size:15px;
+  }
+
+  .top-cta {
+    display:flex;gap:8px;justify-content:center;
+    padding:14px 12px;background:#fff;border-bottom:1px solid #eaeaea;
+  }
+  .pill {
+    flex:1;text-align:center;padding:14px;
+    border-radius:999px;font-weight:800;color:#fff;
+    text-decoration:none;font-size:16px;max-width:220px;
+  }
+  .pill.repair { background:#004c97;box-shadow:0 6px 16px rgba(0,76,151,0.35); }
+  .pill.signup { background:linear-gradient(135deg,#004c97,#0a6cff);box-shadow:0 6px 16px rgba(10,108,255,0.35); }
+
+  .hot-deals {
+    background: #f5f9ff;
+    padding: 24px 12px 10px;
+    border-radius: 18px;
+    max-width: 900px;
+    margin: 24px auto;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.08);
+  }
+  .deal-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 16px;
+    margin-top: 10px;
+  }
+  .deal {
+    background: #ffffff;
+    border: 1px solid #dbe6ff;
+    border-radius: 16px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(10,108,255,0.05);
+    transition: transform .2s;
+  }
+  .deal:hover { transform: translateY(-4px); }
+  .deal h3 { font-size: 18px;font-weight: 800;color: #004c97;margin-bottom: 6px; }
+  .deal .price { font-size: 20px;font-weight: 900;color: #0b1d4f;margin-bottom: 8px; }
+  .badge {
+    display: inline-block;background: #e0edff;border: 1px solid #c7d8ff;
+    color: #1e40af;font-size: 13px;font-weight: 700;
+    padding: 4px 10px;border-radius: 999px;
+  }
+  .badge.gold { background: #fff3bf;border: 1px solid #fde68a;color: #92400e; }
+
+  section { padding:30px 12px;max-width:900px;margin:auto; }
+  .section-title { font-size:22px;font-weight:900;margin-bottom:16px;color:#0b1d4f;text-align:center; }
+  .ptable {
+    width:100%;border-collapse:collapse;font-size:15px;
+    border:1px solid #dbe6ff;border-radius:16px;overflow:hidden;
+    background:#fff;box-shadow:0 4px 14px rgba(15,23,42,0.08);margin-bottom:30px;
+  }
+  .ptable thead th {
+    background:linear-gradient(180deg,#e8f0ff,#d9e8ff);
+    color:#0b1d4f;padding:12px;border-bottom:1px solid #dbe6ff;
+  }
+  .ptable td { padding:12px;border-bottom:1px solid #f0f3fa;text-align:center; }
+  .ptable tr:nth-child(even){background:#f9fbff;}
+  .ptable .left{text-align:left;padding-left:18px;}
+  .ptag { display:inline-block;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800; }
+  .ptag.pink{background:#ffe4f1;border:1px solid #fecdd3;color:#9d174d;}
+  .ptag.blue{background:#e0edff;border:1px solid #c7d8ff;color:#1e40af;}
+  .ptag.gold{background:#fff3bf;border:1px solid #fde68a;color:#92400e;}
+
+  footer { background:#f7f9fe;border-top:1px solid #e8eefc;color:#465569;text-align:center;padding:24px 12px; }
+
+  .dock { position: fixed;bottom: 0;left: 0;right: 0;background: #fff;border-top: 1px solid #e8eefc;display: flex;gap: 8px;padding: 10px 12px;z-index: 999; }
+  .dock a { flex: 1;text-align: center;padding: 14px;border-radius: 12px;font-weight: 900;text-decoration: none;font-size: 16px; }
+  .btn-primary { background: linear-gradient(135deg,#004c97,#0a6cff);color: #fff;box-shadow: 0 6px 16px rgba(10,108,255,0.35);animation: shine 2s infinite alternate; }
+  .btn-ghost { border: 1px solid #dbe6ff;color: #0f172a;background: #fff; }
+  @keyframes shine { from { filter: brightness(100%); } to { filter: brightness(115%); } }
+</style>
 </head>
 <body>
-<div class="header">
-  <button class="as-button" onclick="window.location.href='tel:0438507000';">AS 접수</button>
-  <div class="center-text">
-    <h1>CCS 충북방송 가입센터</h1>
-    <p>010-8475-3598</p>
+
+<header>
+  <a class="cta" href="tel:01084753598">📞 가입문의</a>
+  <div class="logo-text">
+    <span class="c1">C</span><span class="c2">CS</span><span class="dot"></span>
   </div>
-  <button class="new-button" onclick="window.location.href='tel:01084753598';">신규 접수</button>
+  <div class="logo-sub">충북방송 가입센터</div>
+</header>
+
+<div class="tagline">진천 · 음성 · 충주 · 제천 지역 전담 — 인터넷·TV 가입은 전화 한 통으로 끝!</div>
+
+<div class="top-cta">
+  <a class="pill repair" href="tel:01084753598">📞 24시간 상담전화</a>
+  <a class="pill signup" href="tel:01084753598">📝 가입상담 신청</a>
 </div>
 
-<!-- 요금표 영역 (TV / 인터넷 / 인터넷+TV) -->
-<div class="content">
-  <h2 style="text-align:center;">TV 요금제</h2>
-  <table>
-    <thead>
-      <tr><th>상품명</th><th>월 요금</th><th>혜택</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>케이블TV 127채널</td><td>8,800원</td><td>4개월 무료 / 설치비 무료</td></tr>
-      <tr><td>보급형HD 127채널 (4년)</td><td>10,000원</td><td>4개월 무료 / 설치비무료</td></tr>
-      <tr><td>보급형HD 127채널 (4년)</td><td>10,000원</td><td>4개월 무료 요금할인 상품 / HD셋탑박스</td></tr>
-      <tr><td>기본형HD 142채널</td><td>13,200원</td><td>3개월 무료 요금할인 상품 / HD셋탑박스</td></tr>
-      <tr><td>고급형HD 174채널</td><td>14,300원</td><td>3개월 무료 요금할인 상품 / HD셋탑박스</td></tr>
-      <tr><td>보급형HD 추가시</td><td>6,600원</td><td>TV 추가 할인</td></tr>
-      <tr><td>케이블TV 추가시</td><td>5,500원</td><td>TV 추가 할인</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="content">
-  <h2 style="text-align:center;">인터넷 요금제</h2>
-  <table>
-    <thead>
-      <tr><th>상품명</th><th>월 요금</th><th>혜택</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>인터넷 초고속광렌 (4년)</td><td>9,900원</td><td>요금할인 상품</td></tr>
-      <tr><td>인터넷 초고속광렌 (4년)</td><td>9.900원</td><td>3개월 무료 요금할인 상품</td></tr>
-      <tr><td>기가슬림 500M (4년)</td><td>12,100원</td><td>아파트/오피스텔 요금할인 상품</td></tr>
-      <tr><td>기가슬림 500M (3년)</td><td>15,400원</td><td>3개월 무료 요금할인 상품</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="content">
-  <h2 style="text-align:center;">인터넷 + TV 요금제</h2>
-  <table>
-    <thead>
-      <tr><th>상품명</th><th>월 요금</th><th>혜택</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>인터넷100 + 케이블TV 127</td><td>17,830원</td><td>4개월 무료 공유기지급 상품</td></tr>
-      <tr><td>인터넷100 + 보급형HD 127 (4년)</td><td>17,390원</td><td>4개월 무료 요금할인 상품</td></tr>
-    
-      <tr><td>인터넷100 + 기본형HD 142 (4년)</td><td>21,000원</td><td>4개월 무료 요금할인 상품</td></tr>
-      <tr><td>인터넷100 + 기본형HD 142 (3년)</td><td>23,740원</td><td>3개월 무료 요금할인 상품</td></tr>
-      <tr><td>인터넷100 + 고급형HD 174 (4년)</td><td>21,840원</td><td>4개월 무료 요금할인 상품</td></tr>
-      <tr><td>인터넷100 + 고급형HD 174 (3년)</td><td>24,040원</td><td>3개월 무료 요금할인 상품</td></tr>
-      <tr><td>기가슬림 + 보급형HD 105</td><td>24,040원</td><td>3개월 무료 요금할인 상품</td></tr>
-      <tr><td>기가슬림 + 기본형HD 142</td><td>27,970원</td><td>3개월 무료 요금할인 상품</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- 하단 통화 배너 -->
-<div class="call-banner">
-  <div class="call-content">
-    <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" alt="전화 아이콘" class="phone-icon">
-    <div class="call-info">
-      <div class="call-title">가입문의전화</div>
-      <a href="tel:01084753598" class="call-number">010-8475-3598</a>
-      <div class="call-desc">전화주시면 성심껏 답변해드리겠습니다.<br>연중무휴 상담 / 24시간 상담가능 연락주세요</div>
+<section class="hot-deals">
+  <h2 class="section-title">🔥 인기상품</h2>
+  <div class="deal-wrap">
+    <div class="deal">
+      <h3>케이블TV</h3>
+      <p class="price">월 9,500원</p>
+      <span class="badge">기본형 인기</span>
+    </div>
+    <div class="deal">
+      <h3>광랜+</h3>
+      <p class="price">월 9,900원</p>
+      <span class="badge">가성비 최고</span>
+    </div>
+    <div class="deal">
+      <h3>케이블TV + 광랜</h3>
+      <p class="price">월 17,830원</p>
+      <span class="badge gold">결합상품</span>
     </div>
   </div>
+</section>
+
+<section>
+  <h2 class="section-title">📺 TV 요금제</h2>
+  <table class="ptable">
+    <thead><tr><th>상품</th><th>월요금(원)</th><th>혜택</th></tr></thead>
+    <tbody>
+      <tr><td class="left">케이블TV 98채널</td><td>9,500</td><td><span class="ptag pink">3개월 무료</span></td></tr>
+      <tr><td class="left">보급형HD 105채널 (3년)</td><td>11,000</td><td><span class="ptag blue">11월 특가</span></td></tr>
+      <tr><td class="left">기본형HD 142채널</td><td>13,200</td><td><span class="ptag pink">3개월 무료</span></td></tr>
+      <tr><td class="left">고급형HD 174채널</td><td>14,300</td><td><span class="ptag blue">4개월 무료</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-title">🌐 인터넷 요금제</h2>
+  <table class="ptable">
+    <thead><tr><th>상품</th><th>월요금(원)</th><th>혜택</th></tr></thead>
+    <tbody>
+      <tr><td class="left">인터넷 100M (3년)</td><td>12,100</td><td><span class="ptag pink">3개월 무료</span></td></tr>
+      <tr><td class="left">인터넷 100M (4년)</td><td>9,900</td><td><span class="ptag blue">4개월 무료</span></td></tr>
+      <tr><td class="left">기가슬림 500M (4년)</td><td>12,100</td><td><span class="ptag gold">아파트 우대</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-title">💻 인터넷 + TV 결합</h2>
+  <table class="ptable">
+    <thead><tr><th>상품</th><th>월요금(원)</th><th>혜택</th></tr></thead>
+    <tbody>
+      <tr><td class="left">인터넷100 + 보급형HD105 (3년)</td><td>21,230</td><td><span class="ptag pink">3개월 무료</span></td></tr>
+      <tr><td class="left">인터넷100 + 기본형HD142 (4년)</td><td>21,000</td><td><span class="ptag blue">4개월 무료</span></td></tr>
+      <tr><td class="left">기가슬림500M + 기본형HD142</td><td>27,970</td><td><span class="ptag pink">3개월 무료</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2 class="section-title">📡 채널 편성표</h2>
+  <p style="text-align:center;color:#465569;font-weight:600;margin-bottom:18px;">CCS 케이블TV · 보급형HD · 기본형HD · 고급형HD 전체 채널 목록</p>
+
+  <div class="channel-section">
+    <h2 class="section-title">📺 보급형HD 채널</h2>
+
+<div class="channel-grid">
+
+<div class="channel-card"><div class="channel-num">2</div><div class="channel-name">CCS 지역채널</div></div>
+<div class="channel-card"><div class="channel-num">3</div><div class="channel-name">MBC에브리원</div></div>
+<div class="channel-card"><div class="channel-num">4</div><div class="channel-name">GS홈쇼핑</div></div>
+
+<div class="channel-card"><div class="channel-num">5</div><div class="channel-name">CJB</div></div>
+<div class="channel-card"><div class="channel-num">6</div><div class="channel-name">CJ오스타일</div></div>
+<div class="channel-card"><div class="channel-num">7</div><div class="channel-name">KBS2</div></div>
+
+<div class="channel-card"><div class="channel-num">8</div><div class="channel-name">현대홈쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">9</div><div class="channel-name">KBS1</div></div>
+<div class="channel-card"><div class="channel-num">10</div><div class="channel-name">롯데홈쇼핑</div></div>
+
+<div class="channel-card"><div class="channel-num">11</div><div class="channel-name">MBC충북</div></div>
+<div class="channel-card"><div class="channel-num">12</div><div class="channel-name">JTBC</div></div>
+<div class="channel-card"><div class="channel-num">13</div><div class="channel-name">EBS1</div></div>
+
+<div class="channel-card"><div class="channel-num">14</div><div class="channel-name">NS홈쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">15</div><div class="channel-name">tvN</div></div>
+<div class="channel-card"><div class="channel-num">16</div><div class="channel-name">채널A</div></div>
+
+<div class="channel-card"><div class="channel-num">17</div><div class="channel-name">홈앤쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">18</div><div class="channel-name">MBN</div></div>
+<div class="channel-card"><div class="channel-num">19</div><div class="channel-name">TV조선</div></div>
+
+<div class="channel-card"><div class="channel-num">20</div><div class="channel-name">공영쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">21</div><div class="channel-name">이벤트TV</div></div>
+<div class="channel-card"><div class="channel-num">23</div><div class="channel-name">연합뉴스TV</div></div>
+
+<div class="channel-card"><div class="channel-num">24</div><div class="channel-name">YTN</div></div>
+<div class="channel-card"><div class="channel-num">25</div><div class="channel-name">한국경제TV</div></div>
+<div class="channel-card"><div class="channel-num">26</div><div class="channel-name">SBS Biz</div></div>
+
+<div class="channel-card"><div class="channel-num">27</div><div class="channel-name">매일경제TV</div></div>
+<div class="channel-card"><div class="channel-num">28</div><div class="channel-name">MTN</div></div>
+<div class="channel-card"><div class="channel-num">30</div><div class="channel-name">MBC드라마</div></div>
+
+<div class="channel-card"><div class="channel-num">32</div><div class="channel-name">SBS PLUS</div></div>
+<div class="channel-card"><div class="channel-num">34</div><div class="channel-name">KBS드라마</div></div>
+<div class="channel-card"><div class="channel-num">36</div><div class="channel-name">CNTV</div></div>
+
+<div class="channel-card"><div class="channel-num">37</div><div class="channel-name">IHQ drama</div></div>
+<div class="channel-card"><div class="channel-num">38</div><div class="channel-name">디원</div></div>
+<div class="channel-card"><div class="channel-num">39</div><div class="channel-name">드라마큐브</div></div>
+
+<div class="channel-card"><div class="channel-num">40</div><div class="channel-name">채널차이나</div></div>
+<div class="channel-card"><div class="channel-num">41</div><div class="channel-name">하이라이트TV</div></div>
+<div class="channel-card"><div class="channel-num">44</div><div class="channel-name">드라마H</div></div>
+
+<div class="channel-card"><div class="channel-num">46</div><div class="channel-name">TV 아시아</div></div>
+<div class="channel-card"><div class="channel-num">49</div><div class="channel-name">E채널</div></div>
+<div class="channel-card"><div class="channel-num">51</div><div class="channel-name">IHQ show</div></div>
+
+<div class="channel-card"><div class="channel-num">52</div><div class="channel-name">K STAR</div></div>
+<div class="channel-card"><div class="channel-num">53</div><div class="channel-name">TV조선2</div></div>
+<div class="channel-card"><div class="channel-num">54</div><div class="channel-name">채널A+</div></div>
+
+<div class="channel-card"><div class="channel-num">55</div><div class="channel-name">JTBC2</div></div>
+<div class="channel-card"><div class="channel-num">56</div><div class="channel-name">iHQ</div></div>
+<div class="channel-card"><div class="channel-num">57</div><div class="channel-name">KBS JOY</div></div>
+
+<div class="channel-card"><div class="channel-num">58</div><div class="channel-name">SBS funE</div></div>
+<div class="channel-card"><div class="channel-num">59</div><div class="channel-name">CMCTV</div></div>
+<div class="channel-card"><div class="channel-num">61</div><div class="channel-name">M.NET</div></div>
+
+<div class="channel-card"><div class="channel-num">63</div><div class="channel-name">채널MX</div></div>
+<div class="channel-card"><div class="channel-num">68</div><div class="channel-name">스마일티비 플러스</div></div>
+<div class="channel-card"><div class="channel-num">69</div><div class="channel-name">tvN SHOW</div></div>
+
+<div class="channel-card"><div class="channel-num">70</div><div class="channel-name">View</div></div>
+<div class="channel-card"><div class="channel-num">71</div><div class="channel-name">영화가이드</div></div>
+<div class="channel-card"><div class="channel-num">74</div><div class="channel-name">OCN Thrills</div></div>
+
+<div class="channel-card"><div class="channel-num">75</div><div class="channel-name">스크린</div></div>
+<div class="channel-card"><div class="channel-num">76</div><div class="channel-name">cinef</div></div>
+<div class="channel-card"><div class="channel-num">77</div><div class="channel-name">CH. NOW</div></div>
+
+<div class="channel-card"><div class="channel-num">86</div><div class="channel-name">M플렉스</div></div>
+<div class="channel-card"><div class="channel-num">91</div><div class="channel-name">청춘시대TV</div></div>
+<div class="channel-card"><div class="channel-num">92</div><div class="channel-name">MBC M</div></div>
+
+<div class="channel-card"><div class="channel-num">101</div><div class="channel-name">올리브</div></div>
+<div class="channel-card"><div class="channel-num">102</div><div class="channel-name">GTV</div></div>
+<div class="channel-card"><div class="channel-num">103</div><div class="channel-name">패션앤</div></div>
+
+<div class="channel-card"><div class="channel-num">104</div><div class="channel-name">CH. EVER</div></div>
+<div class="channel-card"><div class="channel-num">111</div><div class="channel-name">사이언스TV</div></div>
+<div class="channel-card"><div class="channel-num">112</div><div class="channel-name">EBS Plus1</div></div>
+
+<div class="channel-card"><div class="channel-num">113</div><div class="channel-name">EBS Plus2</div></div>
+<div class="channel-card"><div class="channel-num">114</div><div class="channel-name">방송대학TV</div></div>
+<div class="channel-card"><div class="channel-num">115</div><div class="channel-name">EBS English</div></div>
+
+<div class="channel-card"><div class="channel-num">119</div><div class="channel-name">육아방송</div></div>
+<div class="channel-card"><div class="channel-num">121</div><div class="channel-name">투니버스</div></div>
+<div class="channel-card"><div class="channel-num">122</div><div class="channel-name">JEI재능TV</div></div>
+
+<div class="channel-card"><div class="channel-num">123</div><div class="channel-name">디즈니 채널</div></div>
+<div class="channel-card"><div class="channel-num">124</div><div class="channel-name">애니맥스</div></div>
+<div class="channel-card"><div class="channel-num">125</div><div class="channel-name">애니박스</div></div>
+
+<div class="channel-card"><div class="channel-num">126</div><div class="channel-name">대교어린이TV</div></div>
+<div class="channel-card"><div class="channel-num">127</div><div class="channel-name">챔프</div></div>
+
 </div>
 
-<!-- 즉시 통화 버튼 고정 -->
-<a href="tel:01084753598" class="call-bubble">즉시<br>통화</a>
 
-<!-- 푸터 -->
-<div class="footer">
-  © 2025  씨씨에스충북방송 가입센터 사업자등록번호:509-58-00736 대표자:황규호
-     주소:충북 진천군 덕산읍 예지1길 4 202호 . All rights reserved.
+  <div class="channel-section">
+    <h2 class="section-title">📺 기본형HD (보급형 포함)</h2>
+
+<div class="channel-grid">
+
+<div class="channel-card"><div class="channel-num">43</div><div class="channel-name">tvN DRAMA</div></div>
+<div class="channel-card"><div class="channel-num">45</div><div class="channel-name">엣지TV</div></div>
+<div class="channel-card"><div class="channel-num">47</div><div class="channel-name">HQ+</div></div>
+
+<div class="channel-card"><div class="channel-num">60</div><div class="channel-name">MBN+</div></div>
+<div class="channel-card"><div class="channel-num">67</div><div class="channel-name">GOLF & PBA</div></div>
+<div class="channel-card"><div class="channel-num">72</div><div class="channel-name">OCN</div></div>
+
+<div class="channel-card"><div class="channel-num">73</div><div class="channel-name">OCN Movies</div></div>
+<div class="channel-card"><div class="channel-num">88</div><div class="channel-name">더무비</div></div>
+<div class="channel-card"><div class="channel-num">89</div><div class="channel-name">인디필름</div></div>
+
+<div class="channel-card"><div class="channel-num">90</div><div class="channel-name">채널칭</div></div>
+<div class="channel-card"><div class="channel-num">93</div><div class="channel-name">SBS MTV</div></div>
+<div class="channel-card"><div class="channel-num">94</div><div class="channel-name">아이넷</div></div>
+
+<div class="channel-card"><div class="channel-num">95</div><div class="channel-name">GMtv</div></div>
+<div class="channel-card"><div class="channel-num">96</div><div class="channel-name">실버아이TV</div></div>
+<div class="channel-card"><div class="channel-num">105</div><div class="channel-name">KBS Story</div></div>
+
+<div class="channel-card"><div class="channel-num">107</div><div class="channel-name">동아TV</div></div>
+<div class="channel-card"><div class="channel-num">118</div><div class="channel-name">WEE TV</div></div>
+<div class="channel-card"><div class="channel-num">129</div><div class="channel-name">카툰네트워크</div></div>
+
+<div class="channel-card"><div class="channel-num">130</div><div class="channel-name">애니플러스</div></div>
+<div class="channel-card"><div class="channel-num">131</div><div class="channel-name">SBS Nick</div></div>
+<div class="channel-card"><div class="channel-num">132</div><div class="channel-name">부메랑</div></div>
+
+<div class="channel-card"><div class="channel-num">133</div><div class="channel-name">KBS Kids</div></div>
+<div class="channel-card"><div class="channel-num">134</div><div class="channel-name">디즈니주니어</div></div>
+<div class="channel-card"><div class="channel-num">136</div><div class="channel-name">STA TV</div></div>
+
+<div class="channel-card"><div class="channel-num">150</div><div class="channel-name">인도이스포츠</div></div>
+<div class="channel-card"><div class="channel-num">154</div><div class="channel-name">한국바둑TV</div></div>
+<div class="channel-card"><div class="channel-num">159</div><div class="channel-name">플라리스TV</div></div>
+
+<div class="channel-card"><div class="channel-num">161</div><div class="channel-name">JTBC4</div></div>
+<div class="channel-card"><div class="channel-num">165</div><div class="channel-name">IB스포츠</div></div>
+<div class="channel-card"><div class="channel-num">167</div><div class="channel-name">이데일리TV</div></div>
+
+<div class="channel-card"><div class="channel-num">168</div><div class="channel-name">서울경제TV</div></div>
+<div class="channel-card"><div class="channel-num">177</div><div class="channel-name">채널J</div></div>
+<div class="channel-card"><div class="channel-num">191</div><div class="channel-name">GOOD TV</div></div>
+
+<div class="channel-card"><div class="channel-num">192</div><div class="channel-name">BBS불교방송</div></div>
+<div class="channel-card"><div class="channel-num">197</div><div class="channel-name">채널아이</div></div>
+
 </div>
+
+<div class="channel-section">
+    <h2 class="section-title">🏆 고급형HD (기본형 포함)</h2>
+
+<div class="channel-grid">
+
+<div class="channel-card"><div class="channel-num">48</div><div class="channel-name">스카이HD</div></div>
+<div class="channel-card"><div class="channel-num">62</div><div class="channel-name">FUN TV</div></div>
+<div class="channel-card"><div class="channel-num">64</div><div class="channel-name">채널잼</div></div>
+
+<div class="channel-card"><div class="channel-num">65</div><div class="channel-name">CH.DIA</div></div>
+<div class="channel-card"><div class="channel-num">66</div><div class="channel-name">채널 S</div></div>
+<div class="channel-card"><div class="channel-num">87</div><div class="channel-name">중화TV</div></div>
+
+<div class="channel-card"><div class="channel-num">106</div><div class="channel-name">TvN스토리</div></div>
+<div class="channel-card"><div class="channel-num">108</div><div class="channel-name">라이프타임</div></div>
+<div class="channel-card"><div class="channel-num">109</div><div class="channel-name">쿡티비</div></div>
+
+<div class="channel-card"><div class="channel-num">110</div><div class="channel-name">YTN2</div></div>
+<div class="channel-card"><div class="channel-num">116</div><div class="channel-name">플레이런TV</div></div>
+<div class="channel-card"><div class="channel-num">117</div><div class="channel-name">JEI English</div></div>
+
+<div class="channel-card"><div class="channel-num">149</div><div class="channel-name">SPOTV2</div></div>
+<div class="channel-card"><div class="channel-num">152</div><div class="channel-name">SKY Sports</div></div>
+<div class="channel-card"><div class="channel-num">155</div><div class="channel-name">Billiards TV</div></div>
+
+<div class="channel-card"><div class="channel-num">162</div><div class="channel-name">브레인TV</div></div>
+<div class="channel-card"><div class="channel-num">164</div><div class="channel-name">ONCE</div></div>
+<div class="channel-card"><div class="channel-num">169</div><div class="channel-name">빽스경제TV</div></div>
+
+<div class="channel-card"><div class="channel-num">170</div><div class="channel-name">NHK</div></div>
+<div class="channel-card"><div class="channel-num">171</div><div class="channel-name">CNN</div></div>
+<div class="channel-card"><div class="channel-num">172</div><div class="channel-name">BBC월드</div></div>
+
+<div class="channel-card"><div class="channel-num">173</div><div class="channel-name">CGTN</div></div>
+<div class="channel-card"><div class="channel-num">175</div><div class="channel-name">CCTV-4</div></div>
+<div class="channel-card"><div class="channel-num">179</div><div class="channel-name">리얼TV</div></div>
+
+<div class="channel-card"><div class="channel-num">180</div><div class="channel-name">법률TV</div></div>
+<div class="channel-card"><div class="channel-num">193</div><div class="channel-name">샌드박스+</div></div>
+<div class="channel-card"><div class="channel-num">196</div><div class="channel-name">NBS한국농업방송</div></div>
+
+<div class="channel-card"><div class="channel-num">200</div><div class="channel-name">국방TV</div></div>
+<div class="channel-card"><div class="channel-num">201</div><div class="channel-name">C채널(기독교)</div></div>
+
+</div>
+
+</div>
+
+
+  <div class="channel-section">
+ 
+
+  <style>
+/* ========================================= */
+/*  📡 채널 편성표 고급형 스타일 (최종버전)  */
+/*  기존 channel-grid / channel-card 전부 대체 */
+/* ========================================= */
+
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.channel-card {
+  background: #ffffff;
+  border: 1px solid #d4e1ff;
+  border-radius: 14px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/*  숫자 (채널 번호 박스)  */
+.channel-num {
+  background: linear-gradient(135deg, #004c97, #0a6cff);
+  color: #fff;
+  font-weight: 900;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-bottom: 8px;
+  min-width: 44px;
+  text-align: center;
+}
+
+/*  채널 이름  */
+.channel-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1d4f;
+  line-height: 1.3;
+}
+
+/* 모바일 튀어나옴 방지 */
+@media (max-width: 480px) {
+  .channel-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  .channel-card {
+    padding: 12px 8px;
+  }
+  .channel-num {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+
+</style>
+
+
+  <div class="cable-grid">
+
+<h2 class="section-title">📡 케이블TV 채널</h2>
+
+<div class="channel-grid">
+
+<div class="channel-card"><div class="channel-num">2-1</div><div class="channel-name">CCS 지역채널</div></div>
+<div class="channel-card"><div class="channel-num">3-1</div><div class="channel-name">MBC드라마넷</div></div>
+<div class="channel-card"><div class="channel-num">4-1</div><div class="channel-name">GS홈쇼핑</div></div>
+
+<div class="channel-card"><div class="channel-num">5-1</div><div class="channel-name">CJB</div></div>
+<div class="channel-card"><div class="channel-num">6-1</div><div class="channel-name">CJ오스타일</div></div>
+<div class="channel-card"><div class="channel-num">7-1</div><div class="channel-name">KBS2</div></div>
+
+<div class="channel-card"><div class="channel-num">8-1</div><div class="channel-name">현대홈쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">9-1</div><div class="channel-name">KBS1</div></div>
+<div class="channel-card"><div class="channel-num">10-1</div><div class="channel-name">롯데홈쇼핑</div></div>
+
+<div class="channel-card"><div class="channel-num">11-1</div><div class="channel-name">MBC충북</div></div>
+<div class="channel-card"><div class="channel-num">12-1</div><div class="channel-name">JTBC</div></div>
+<div class="channel-card"><div class="channel-num">13-1</div><div class="channel-name">EBS1</div></div>
+
+<div class="channel-card"><div class="channel-num">14-1</div><div class="channel-name">NS홈쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">15-1</div><div class="channel-name">tvN</div></div>
+<div class="channel-card"><div class="channel-num">16-1</div><div class="channel-name">채널A</div></div>
+
+<div class="channel-card"><div class="channel-num">17-1</div><div class="channel-name">홈앤쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">18-1</div><div class="channel-name">MBN</div></div>
+<div class="channel-card"><div class="channel-num">19-1</div><div class="channel-name">TV조선</div></div>
+
+<div class="channel-card"><div class="channel-num">20-1</div><div class="channel-name">공영쇼핑</div></div>
+<div class="channel-card"><div class="channel-num">21-1</div><div class="channel-name">연합뉴스TV</div></div>
+<div class="channel-card"><div class="channel-num">22-1</div><div class="channel-name">ETN</div></div>
+
+<div class="channel-card"><div class="channel-num">23-1</div><div class="channel-name">연합뉴스TV</div></div>
+<div class="channel-card"><div class="channel-num">24-1</div><div class="channel-name">YTN</div></div>
+<div class="channel-card"><div class="channel-num">25-1</div><div class="channel-name">한국경제TV</div></div>
+
+<div class="channel-card"><div class="channel-num">26-1</div><div class="channel-name">SBS Biz</div></div>
+<div class="channel-card"><div class="channel-num">27-1</div><div class="channel-name">매일경제TV</div></div>
+<div class="channel-card"><div class="channel-num">28-1</div><div class="channel-name">MTN</div></div>
+
+<div class="channel-card"><div class="channel-num">29-1</div><div class="channel-name">FUN-TV</div></div>
+<div class="channel-card"><div class="channel-num">30-1</div><div class="channel-name">CNTV</div></div>
+<div class="channel-card"><div class="channel-num">31-1</div><div class="channel-name">채널칭</div></div>
+
+<div class="channel-card"><div class="channel-num">32-1</div><div class="channel-name">SBS PLUS</div></div>
+<div class="channel-card"><div class="channel-num">33-1</div><div class="channel-name">채널칭</div></div>
+<div class="channel-card"><div class="channel-num">34-1</div><div class="channel-name">OCN Thrills</div></div>
+
+<div class="channel-card"><div class="channel-num">35-1</div><div class="channel-name">OCN Movies</div></div>
+<div class="channel-card"><div class="channel-num">36-1</div><div class="channel-name">OCN Thrills</div></div>
+<div class="channel-card"><div class="channel-num">37-1</div><div class="channel-name">STB상생방송</div></div>
+
+<div class="channel-card"><div class="channel-num">38-1</div><div class="channel-name">M.NET</div></div>
+<div class="channel-card"><div class="channel-num">39-1</div><div class="channel-name">On Style</div></div>
+<div class="channel-card"><div class="channel-num">40-1</div><div class="channel-name">다큐H</div></div>
+
+<div class="channel-card"><div class="channel-num">41-1</div><div class="channel-name">투니버스</div></div>
+<div class="channel-card"><div class="channel-num">42-1</div><div class="channel-name">채널차이나</div></div>
+<div class="channel-card"><div class="channel-num">43-1</div><div class="channel-name">SBS funE</div></div>
+
+<div class="channel-card"><div class="channel-num">44-1</div><div class="channel-name">MBC에브리원</div></div>
+<div class="channel-card"><div class="channel-num">45-1</div><div class="channel-name">KBS-Joy</div></div>
+<div class="channel-card"><div class="channel-num">46-1</div><div class="channel-name">TV아시아</div></div>
+
+<div class="channel-card"><div class="channel-num">47-1</div><div class="channel-name">FTV</div></div>
+<div class="channel-card"><div class="channel-num">48-1</div><div class="channel-name">스카이HD</div></div>
+<div class="channel-card"><div class="channel-num">49-1</div><div class="channel-name">TRENDY</div></div>
+
+<div class="channel-card"><div class="channel-num">50-1</div><div class="channel-name">MBC ON</div></div>
+<div class="channel-card"><div class="channel-num">51-1</div><div class="channel-name">아이에이치큐</div></div>
+<div class="channel-card"><div class="channel-num">52-1</div><div class="channel-name">IHQ DRAMA</div></div>
+
+<div class="channel-card"><div class="channel-num">53-1</div><div class="channel-name">K STAR</div></div>
+<div class="channel-card"><div class="channel-num">54-1</div><div class="channel-name">TV조선2</div></div>
+<div class="channel-card"><div class="channel-num">55-1</div><div class="channel-name">KBSN스포츠</div></div>
+
+<div class="channel-card"><div class="channel-num">56-1</div><div class="channel-name">MBC SPORTS+</div></div>
+<div class="channel-card"><div class="channel-num">57-1</div><div class="channel-name">SBS스포츠</div></div>
+<div class="channel-card"><div class="channel-num">58-1</div><div class="channel-name">해당없음</div></div>
+
+<div class="channel-card"><div class="channel-num">59-1</div><div class="channel-name">IB스포츠</div></div>
+<div class="channel-card"><div class="channel-num">60-1</div><div class="channel-name">View</div></div>
+<div class="channel-card"><div class="channel-num">61-1</div><div class="channel-name">OGN</div></div>
+
+<div class="channel-card"><div class="channel-num">62-1</div><div class="channel-name">CTS</div></div>
+<div class="channel-card"><div class="channel-num">63-1</div><div class="channel-name">채널MX</div></div>
+<div class="channel-card"><div class="channel-num">64-1</div><div class="channel-name">불교TV</div></div>
+
+<div class="channel-card"><div class="channel-num">65-1</div><div class="channel-name">EBS 플러스1</div></div>
+<div class="channel-card"><div class="channel-num">66-1</div><div class="channel-name">MBC 라이프</div></div>
+<div class="channel-card"><div class="channel-num">67-1</div><div class="channel-name">JTBC2</div></div>
+
+<div class="channel-card"><div class="channel-num">68-1</div><div class="channel-name">스마일TV 플러스</div></div>
+<div class="channel-card"><div class="channel-num">69-1</div><div class="channel-name">tvN SHOW</div></div>
+<div class="channel-card"><div class="channel-num">70-1</div><div class="channel-name">드라마큐브</div></div>
+
+<div class="channel-card"><div class="channel-num">71-1</div><div class="channel-name">오레TV</div></div>
+<div class="channel-card"><div class="channel-num">72-1</div><div class="channel-name">닥터TV</div></div>
+<div class="channel-card"><div class="channel-num">73-1</div><div class="channel-name">KBS Kids</div></div>
+
+<div class="channel-card"><div class="channel-num">74-1</div><div class="channel-name">OCN Thrills</div></div>
+<div class="channel-card"><div class="channel-num">75-1</div><div class="channel-name">스크린</div></div>
+<div class="channel-card"><div class="channel-num">76-1</div><div class="channel-name">cinef</div></div>
+
+<div class="channel-card"><div class="channel-num">77-1</div><div class="channel-name">CH.NOW</div></div>
+<div class="channel-card"><div class="channel-num">78-1</div><div class="channel-name">GTV</div></div>
+<div class="channel-card"><div class="channel-num">79-1</div><div class="channel-name">플라리스TV</div></div>
+
+<div class="channel-card"><div class="channel-num">80-1</div><div class="channel-name">동아TV</div></div>
+<div class="channel-card"><div class="channel-num">81-1</div><div class="channel-name">대교어린이TV</div></div>
+<div class="channel-card"><div class="channel-num">82-1</div><div class="channel-name">MBC M</div></div>
+
+<div class="channel-card"><div class="channel-num">83-1</div><div class="channel-name">HQ+</div></div>
+<div class="channel-card"><div class="channel-num">84-1</div><div class="channel-name">IB스포츠</div></div>
+<div class="channel-card"><div class="channel-num">85-1</div><div class="channel-name">국회방송</div></div>
+
+<div class="channel-card"><div class="channel-num">86-1</div><div class="channel-name">M플렉스</div></div>
+<div class="channel-card"><div class="channel-num">87-1</div><div class="channel-name">중화TV</div></div>
+<div class="channel-card"><div class="channel-num">88-1</div><div class="channel-name">JEI English</div></div>
+
+<div class="channel-card"><div class="channel-num">89-1</div><div class="channel-name">아이넷TV</div></div>
+<div class="channel-card"><div class="channel-num">90-1</div><div class="channel-name">소상공인방송</div></div>
+<div class="channel-card"><div class="channel-num">91-1</div><div class="channel-name">더무비</div></div>
+
+<div class="channel-card"><div class="channel-num">92-1</div><div class="channel-name">BBC월드</div></div>
+<div class="channel-card"><div class="channel-num">93-1</div><div class="channel-name">KBS Biz</div></div>
+<div class="channel-card"><div class="channel-num">94-1</div><div class="channel-name">JTBC골프</div></div>
+
+<div class="channel-card"><div class="channel-num">95-1</div><div class="channel-name">방송대학TV</div></div>
+<div class="channel-card"><div class="channel-num">96-1</div><div class="channel-name">KTV국민방송</div></div>
+<div class="channel-card"><div class="channel-num">97-1</div><div class="channel-name">국회방송</div></div>
+
+</div>
+
+</div>
+
+
+<footer>
+  <strong>CCS 충북방송 가입센터
+
+   2025 씨씨에스충북방송 가입센터 사업자등록번호:509-58-00736
+  대표자:황규호 주소:충북 진천군 덕산읍 예지1길4 202</strong><br/>
+  상담전화: 010-8475-3598
+   2025 씨씨에스충북방송 가입센터 사업자등록번호:509-58-00736
+  대표자:황규호 주소:충북 진천군 덕산읍 예지1길4 202<br/><br/>
+  </footer>
+
+<div class="dock">
+  <a class="btn-primary" href="tel:01084753598">📞 가입문의(바로전화)</a>
+  <a class="btn-ghost" href="#plans">요금제 보기</a>
+</div>
+
 
 </body>
 </html>
