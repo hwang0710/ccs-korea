@@ -669,5 +669,20 @@
 </div>
 
 
+<script>
+// CCS 충북방송 방문자 IP 로깅 (Railway 서버)
+(function() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var trackUrl = 'https://ccs-chungbuk.up.railway.app/track';
+    var qs = '?page=' + encodeURIComponent(window.location.pathname);
+    if (params.get('utm_source')) qs += '&utm_source=' + encodeURIComponent(params.get('utm_source'));
+    if (params.get('utm_medium')) qs += '&utm_medium=' + encodeURIComponent(params.get('utm_medium'));
+    if (params.get('utm_campaign')) qs += '&utm_campaign=' + encodeURIComponent(params.get('utm_campaign'));
+    if (params.get('utm_term')) qs += '&utm_term=' + encodeURIComponent(params.get('utm_term'));
+    fetch(trackUrl + qs, { method: 'GET', mode: 'no-cors' }).catch(function(){});
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
